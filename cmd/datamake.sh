@@ -1,0 +1,11 @@
+CUDA_VISIBLE_DEVICES=0 python3 run_mybart.py \
+  --model_name_or_path facebook/bart-base \
+  --do_train --do_eval \
+  --train_file cnndm_wiki_pubmed_train.json \
+  --validation_file cnndm_wiki_pubmed_valid.json \
+  --test_file cnndm_wiki_pubmed_test.json \
+  --output_dir das \
+  --exp_name first \
+  --max_source_length 1024 \
+  --max_target_length 300 \
+  --gene_dataset_path cnndm_wiki_pubmed

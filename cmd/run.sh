@@ -1,0 +1,15 @@
+python3 run_mybart.py --model_name_or_path facebook/bart-large \
+                      --do_train --output_dir das \
+                      --exp_name train_model \
+                      --max_source_length 1024 --max_target_length 300 \
+                      --save_dataset_path cnndm_wiki_pubmed \
+                       --num_train_epochs 100 \
+                      --per_device_train_batch_size 8 --save_strategy epoch  \
+                      --label_smoothing_factor 0.1 --weight_decay 0.01 \
+                      --max_grad_norm 0.1 --warmup_steps 500\
+                      --gradient_accumulation_steps 8 \
+                      --lr_scheduler_type polynomial --learning_rate 3e-05 \
+                      --moe_load False \
+                      --moe_model True --intermediate_size 512 \
+                      --num_experts 3 --num_datasets 3 --margin_loss True \
+                      --moe_model_enc True
